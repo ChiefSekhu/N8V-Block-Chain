@@ -33,4 +33,9 @@ std = [
 # Specify the binary target
 [[bin]]
 name = "n8v-blockchain-node"
-path
+path = "node/src/main.rs"
+
+# Specify the library target
+[lib]
+name = "n8v_blockchain"
+path = "pallets/template/src/lib.rs"  # Adjust this if your main library file is elsewhere
