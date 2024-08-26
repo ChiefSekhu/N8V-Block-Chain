@@ -19,7 +19,7 @@ pqcrypto-dilithium = "0.5.0"
 # Dependencies for Python integration
 cpython = "0.5.0"
 
-# Dependencies for schnorrkel, ensuring only one version is used
+# Ensure schnorrkel is set to version 0.9.1, which matches sp-core's expectations
 schnorrkel = "0.9.1"
 
 [features]
