@@ -19,7 +19,7 @@ pqcrypto-dilithium = "0.5.0"
 # Dependencies for Python integration
 cpython = "0.5.0"
 
-# Dependencies for schnorrkel
+# Dependencies for schnorrkel, ensuring only one version is used
 schnorrkel = { version = "0.11.4", git = "https://github.com/w3f/schnorrkel", branch = "master", default-features = false }
 
 [features]
@@ -43,5 +43,6 @@ path = "node/src/main.rs"
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
 
-[patch.crates-io]
-schnorrkel = { git = "https://github.com/w3f/schnorrkel", branch = "master" }
+[replace]
+"schnorrkel:0.9.1" =
+
