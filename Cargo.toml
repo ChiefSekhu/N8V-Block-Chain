@@ -5,7 +5,7 @@ authors = ["Se'khu Hadjo Gentle <micohadjo@yamasseenation.org>"]
 edition = "2018"  # Use "2018" or "2021" as the edition
 
 [dependencies]
-substrate-node-template = { git = "https://github.com/substrate-developer-hub/substrate-node-template", branch = "master" }
+substrate-node-template = { git = "https://github.com/substrate-developer-hub/substrate-node-template", branch = "main" }
 frame-support = { version = "4.0.0-dev", default-features = false }
 frame-system = { version = "4.0.0-dev", default-features = false }
 pallet-balances = { version = "4.0.0-dev", default-features = false }
