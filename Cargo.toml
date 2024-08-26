@@ -2,7 +2,7 @@
 name = "n8v-blockchain"
 version = "0.1.0"
 authors = ["Se'khu Hadjo Gentle <micohadjo@yamasseenation.org>"]
-edition = "2018"  # Use "2018" or "2021" as the edition
+edition = "2018"
 
 [dependencies]
 frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
