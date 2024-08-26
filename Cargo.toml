@@ -2,7 +2,7 @@
 name = "n8v-blockchain"
 version = "0.1.0"
 authors = ["Se'khu Hadjo Gentle <micohadjo@yamasseenation.org>"]
-edition = "2018"  # Use "2018" or "2021" as the edition, NOT "2024"
+edition = "2018"  # Use "2018" or "2021" as the edition
 
 [dependencies]
 substrate-node-template = { git = "https://github.com/substrate-developer-hub/substrate-node-template", branch = "master" }
@@ -22,8 +22,20 @@ sp-io = { version = "4.0.0-dev", default-features = false, features = ["std"] }
 
 [features]
 default = ["std"]
-std = ["frame-support/std",
+std = [
+    "frame-support/std",
     "frame-system/std",
     "pallet-balances/std",
     "sp-runtime/std",
-    "sp-io/std"]
+    "sp-io/std"
+]
+
+# Specify the binary target
+[[bin]]
+name = "n8v-blockchain-node"
+path = "node/src/main.rs"
+
+# Specify the library target
+[lib]
+name = "n8v_blockchain"
+path = "pallets/template/src/lib.rs"  # Adjust this if your main library file is elsewhere
