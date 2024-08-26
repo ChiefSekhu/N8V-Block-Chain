@@ -27,11 +27,5 @@ std = [
     "frame-system/std",
     "pallet-balances/std",
     "sp-runtime/std",
-    "sp-io/std"  # Add a comma here if more items follow
-]
-
-]
-
     "sp-io/std"
-]
 
