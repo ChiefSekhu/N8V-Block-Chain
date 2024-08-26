@@ -11,7 +11,7 @@ frame-system = { git = "https://github.com/paritytech/substrate", branch = "polk
 pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 
 # Dependencies for quantum-resistant cryptography
-pqcrypto-dilithium = "0.7.0"
+pqcrypto-dilithium = "0.5.0"
 
 # Dependencies for Python integration
 cpython = "0.5.0"
@@ -33,9 +33,4 @@ std = [
 # Specify the binary target
 [[bin]]
 name = "n8v-blockchain-node"
-path = "node/src/main.rs"
-
-# Specify the library target
-[lib]
-name = "n8v_blockchain"
-path = "pallets/template/src/lib.rs"  # Adjust this if your main library file is elsewhere
+path
