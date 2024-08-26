@@ -22,10 +22,8 @@ sp-io = { version = "4.0.0-dev", default-features = false, features = ["std"] }
 
 [features]
 default = ["std"]
-std = [
-    "frame-support/std",
+std = ["frame-support/std",
     "frame-system/std",
     "pallet-balances/std",
     "sp-runtime/std",
-    "sp-io/std"
-]
+    "sp-io/std"]
