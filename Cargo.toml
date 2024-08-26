@@ -20,7 +20,7 @@ pqcrypto-dilithium = "0.5.0"
 cpython = "0.5.0"
 
 # Dependencies for schnorrkel, ensuring only one version is used
-schnorrkel = { version = "0.11.4", git = "https://github.com/w3f/schnorrkel", branch = "master", default-features = false }
+schnorrkel = "0.9.1"
 
 [features]
 default = ["std"]
@@ -42,8 +42,3 @@ path = "node/src/main.rs"
 [lib]
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
-
-[replace]
-"schnorrkel:0.9.1" = { git = "https://github.com/w3f/schnorrkel", branch = "master" }
-"schnorrkel:0.10.0" = { git = "https://github.com/w3f/schnorrkel", branch = "master" }
-"schnorrkel:0.11.0" = { git = "https://github.com/w3f/schnorrkel", branch = "master" }
