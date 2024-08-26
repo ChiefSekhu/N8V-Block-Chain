@@ -5,7 +5,6 @@ authors = ["Se'khu Hadjo Gentle <micohadjo@yamasseenation.org>"]
 edition = "2018"  # Use "2018" or "2021" as the edition
 
 [dependencies]
-substrate-frame = { git = "https://github.com/paritytech/substrate", package = "frame-support", branch = "polkadot-v0.9.37" }
 frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
