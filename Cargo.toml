@@ -28,4 +28,4 @@ std = [
     "pallet-balances/std",
     "sp-runtime/std",
     "sp-io/std"
-
+]
