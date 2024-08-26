@@ -11,6 +11,7 @@ pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "p
 sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
 sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
+sp-application-crypto = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 
 # Dependencies for quantum-resistant cryptography
 pqcrypto-dilithium = "0.5.0"
@@ -27,8 +28,10 @@ std = [
     "frame-support/std",
     "frame-system/std",
     "pallet-balances/std",
+    "sp-core/std",
     "sp-runtime/std",
     "sp-io/std",
+    "sp-application-crypto/std",
     "schnorrkel/std"
 ]
 
