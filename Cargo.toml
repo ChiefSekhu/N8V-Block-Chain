@@ -5,7 +5,7 @@ authors = ["Se'khu Hadjo Gentle <micohadjo@yamasseenation.org>"]
 edition = "2018"
 
 [dependencies]
-# Use exact versions that match the expected dependencies
+# All dependencies should be aligned to use the same Substrate branch and schnorrkel version
 frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
@@ -14,7 +14,7 @@ sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkad
 sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
 sp-application-crypto = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 
-# Use the specific version of schnorrkel that sp-core expects
+# Align schnorrkel to version 0.9.1
 schnorrkel = "0.9.1"
 
 # Dependencies for quantum-resistant cryptography
@@ -38,8 +38,4 @@ std = [
 
 [[bin]]
 name = "n8v-blockchain-node"
-path = "node/src/main.rs"
-
-[lib]
-name = "n8v_blockchain"
-path = "pallets/template/src/lib.rs"
+path 
