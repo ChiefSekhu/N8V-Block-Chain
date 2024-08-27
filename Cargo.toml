@@ -13,7 +13,7 @@ sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkad
 sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
 sp-application-crypto = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 
-# Align schnorrkel to version 0.9.1
+# Use schnorrkel version 0.9.1
 schnorrkel = "0.9.1"
 
 # Dependencies for quantum-resistant cryptography
@@ -21,6 +21,9 @@ pqcrypto-dilithium = "0.5.0"
 
 # Dependencies for Python integration
 cpython = "0.5.0"
+
+[patch.crates-io]
+schnorrkel = { version = "0.9.1", git = "https://github.com/w3f/schnorrkel", rev = "0.9.1" }
 
 [features]
 default = ["std"]
