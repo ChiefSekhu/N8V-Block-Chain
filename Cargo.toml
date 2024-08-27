@@ -5,6 +5,7 @@ authors = ["Se'khu Hadjo Gentle <micohadjo@yamasseenation.org>"]
 edition = "2018"
 
 [dependencies]
+# Use exact versions that match the expected dependencies
 frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
@@ -13,14 +14,14 @@ sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkad
 sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
 sp-application-crypto = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 
+# Use the specific version of schnorrkel that sp-core expects
+schnorrkel = "0.9.1"
+
 # Dependencies for quantum-resistant cryptography
 pqcrypto-dilithium = "0.5.0"
 
 # Dependencies for Python integration
 cpython = "0.5.0"
-
-# Dependencies for schnorrkel, ensuring only one version is used
-schnorrkel = { version = "0.11.4", git = "https://github.com/w3f/schnorrkel", branch = "master", default-features = false }
 
 [features]
 default = ["std"]
@@ -42,8 +43,3 @@ path = "node/src/main.rs"
 [lib]
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
-
-[replace]
-"schnorrkel:0.9.1" = { git = "https://github.com/w3f/schnorrkel", branch = "master" }
-"schnorrkel:0.10.0" = { git = "https://github.com/w3f/schnorrkel", branch = "master" }
-"schnorrkel:0.11.0" = { git = "https://github.com/w3f/schnorrkel", branch = "master" }
