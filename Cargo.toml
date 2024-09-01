@@ -13,11 +13,11 @@ sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkad
 sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
 sp-application-crypto = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 schnorrkel = "0.9.1"
-pqcrypto-dilithium = "0.5.0"  # Quantum-resistant cryptography
-cpython = "0.5.0"  # Python integration
-ai-optimizer = { git = "https://github.com/some/ai-optimizer", branch = "main" }  # Hypothetical AI-driven optimizer
-decentralized-storage = { git = "https://github.com/ipfs-rust/ipfs", version = "0.3.0" }  # Decentralized storage integration
-heavyhash = { git = "https://github.com/kaspa-org/kaspa-rs", branch = "master" }  # Heavyhash for energy-efficient mining
+pqcrypto-dilithium = "0.5.0"
+cpython = "0.5.0"
+ai-optimizer = { git = "https://github.com/some/ai-optimizer", branch = "main" }
+decentralized-storage = { git = "https://github.com/ipfs-rust/ipfs", version = "0.3.0" }
+heavyhash = { git = "https://github.com/kaspa-org/kaspa-rs", branch = "master" }
 
 [features]
 default = ["std"]
@@ -43,3 +43,4 @@ path = "node/src/main.rs"
 [lib]
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
+
