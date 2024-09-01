@@ -1,6 +1,6 @@
 [package]
 name = "n8v-blockchain"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Se'khu Hadjo Gentle <micohadjo@yamasseenation.org>"]
 edition = "2018"
 
@@ -12,18 +12,12 @@ sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-
 sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
 sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
 sp-application-crypto = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
-
-# Use schnorrkel version 0.9.1
 schnorrkel = "0.9.1"
-
-# Dependencies for quantum-resistant cryptography
-pqcrypto-dilithium = "0.5.0"
-
-# Dependencies for Python integration
-cpython = "0.5.0"
-
-[patch.crates-io]
-schnorrkel = { version = "0.9.1", git = "https://github.com/w3f/schnorrkel", rev = "0.9.1" }
+pqcrypto-dilithium = "0.5.0"  # Quantum-resistant cryptography
+cpython = "0.5.0"  # Python integration
+ai-optimizer = { git = "https://github.com/some/ai-optimizer", branch = "main" }  # Hypothetical AI-driven optimizer
+decentralized-storage = { git = "https://github.com/ipfs-rust/ipfs", version = "0.3.0" }  # Decentralized storage integration
+heavyhash = { git = "https://github.com/kaspa-org/kaspa-rs", branch = "master" }  # Heavyhash for energy-efficient mining
 
 [features]
 default = ["std"]
@@ -35,7 +29,11 @@ std = [
     "sp-runtime/std",
     "sp-io/std",
     "sp-application-crypto/std",
-    "schnorrkel/std"
+    "schnorrkel/std",
+    "pqcrypto-dilithium/std",
+    "decentralized-storage/std",
+    "heavyhash/std",
+    "ai-optimizer/std"
 ]
 
 [[bin]]
