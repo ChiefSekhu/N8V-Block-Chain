@@ -15,7 +15,7 @@ sp-application-crypto = { git = "https://github.com/paritytech/substrate", branc
 schnorrkel = "0.9.1"
 pqcrypto-dilithium = "0.5.0"
 cpython = "0.5.0"
-kaspa-hashes = "0.13.4"  # Replacing heavyhash with KHeavyHash from kaspa-hashes crate
+kaspa-hashes = "0.13.4"  # Using without the std feature
 
 [features]
 default = ["std"]
@@ -28,8 +28,8 @@ std = [
     "sp-io/std",
     "sp-application-crypto/std",
     "schnorrkel/std",
-    "pqcrypto-dilithium/std",
-    "kaspa-hashes/std"
+    "pqcrypto-dilithium/std"
+    # kaspa-hashes excluded from std features
 ]
 
 [[bin]]
