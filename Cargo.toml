@@ -17,6 +17,8 @@ pretty_env_logger = "0.4"
 schnorrkel = "0.11.4"
 pqcrypto-dilithium = "0.5.0"
 cpython = { version = "0.5.2", features = ["extension-module"], default-features = false }  # Fix for PYTHONSYS_ENV_VAR issue
+frame-support = { version = "4.0.0", default-features = false, features = ['std'] }  # Added frame-support
+frame-system = { version = "4.0.0", default-features = false, features = ['std'] }   # Added frame-system
 
 [features]
 default = ["std"]
@@ -32,7 +34,9 @@ std = [
     "once_cell/std",
     "log/std",
     "schnorrkel/std",
-    "pqcrypto-dilithium/std"
+    "pqcrypto-dilithium/std",
+    "frame-support/std",  # Added frame-support/std
+    "frame-system/std"    # Added frame-system/std
 ]
 
 [[bin]]
