@@ -1,34 +1,52 @@
-use pqcrypto_dilithium::dilithium2::{keypair, sign, verify};
+use sp_core::sr25519::{Public, Signature};
+use schnorrkel::{MiniSecretKey, ExpansionMode};
+use pqcrypto_dilithium::dilithium3::*;
+use heavyhash::HeavyHash;
+use frame_support::{decl_module, decl_storage, dispatch::DispatchResult};
+use frame_system::ensure_signed;
+use sp_runtime::traits::{Verify, IdentifyAccount};
 
-pub struct Wallet {
-    pub public_key: Vec<u8>,
-    pub secret_key: Vec<u8>,
-    pub account_id: AccountId, // Assuming AccountId is defined somewhere in your runtime
+#[derive(Clone, Eq, PartialEq, Encode, Decode, Default)]
+pub struct Transaction {
+    pub sender: Public,
+    pub receiver: Public,
+    pub amount: u64,
+    pub signature: Signature,
+    pub dag_block_hash: [u8; 32],
 }
 
-impl Wallet {
-    pub fn create() -> Self {
-        let (pk, sk) = keypair(); // Generate quantum-resistant keypair
-        Wallet {
-            public_key: pk.to_vec(),
-            secret_key: sk.to_vec(),
-            account_id: generate_account_id(pk.to_vec()), // Assuming a function to generate AccountId
+decl_storage! {
+    trait Store for Module<T: Config> as N8IVModule {
+        Transactions: Vec<Transaction>;
+        DAGBlocks: map hasher(blake2_128_concat) [u8; 32] => Option<Transaction>;
+    }
+}
+
+decl_module! {
+    pub struct Module<T: Config> for enum Call where origin: T::Origin {
+        #[weight = 10_000]
+        pub fn submit_transaction(origin, receiver: Public, amount: u64, signature: Signature, dag_block_hash: [u8; 32]) -> DispatchResult {
+            let sender = ensure_signed(origin)?;
+            
+            let transaction = Transaction {
+                sender,
+                receiver,
+                amount,
+                signature,
+                dag_block_hash,
+            };
+            
+            ensure!(Self::verify_signature(&transaction), "Invalid signature");
+            DAGBlocks::insert(transaction.dag_block_hash, transaction.clone());
+            Transactions::append(transaction);
+            
+            Ok(())
         }
     }
+}
 
-    pub fn sign_transaction(&self, data: &[u8]) -> Vec<u8> {
-        sign(data, &self.secret_key)
-    }
-
-    pub fn verify_transaction(data: &[u8], signature: &[u8], public_key: &[u8]) -> bool {
-        verify(signature, data, public_key).is_ok()
-    }
-
-    pub fn transfer(&self, to: &AccountId, amount: u64) -> dispatch::DispatchResult {
-        N8VTokenModule::transfer(self.account_id.clone(), to.clone(), amount)
-    }
-
-    pub fn balance(&self) -> u64 {
-        N8VTokenModule::balance_of(self.account_id.clone())
+impl<T: Config> Module<T> {
+    fn verify_signature(tx: &Transaction) -> bool {
+        tx.signature.verify(&tx.sender, &tx.dag_block_hash).is_ok()
     }
 }
