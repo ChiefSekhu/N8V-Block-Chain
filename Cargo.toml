@@ -42,6 +42,3 @@ path = "node/src/main.rs"
 [lib]
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
-
-[build-dependencies]
-build = { version = "0.1", path = "build.rs" }  # Assuming you might need this for custom build scripts
