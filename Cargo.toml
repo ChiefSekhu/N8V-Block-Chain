@@ -15,7 +15,7 @@ sp-application-crypto = { git = "https://github.com/paritytech/substrate", branc
 schnorrkel = "0.9.1"
 pqcrypto-dilithium = "0.5.0"
 cpython = "0.5.0"
-heavyhash = { git = "https://github.com/kaspa-org/kaspa-rs", branch = "master" }
+kaspa-hashes = "0.13.4"  # Replacing heavyhash with KHeavyHash from kaspa-hashes crate
 
 [features]
 default = ["std"]
@@ -29,7 +29,7 @@ std = [
     "sp-application-crypto/std",
     "schnorrkel/std",
     "pqcrypto-dilithium/std",
-    "heavyhash/std"
+    "kaspa-hashes/std"
 ]
 
 [[bin]]
@@ -39,4 +39,3 @@ path = "node/src/main.rs"
 [lib]
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
-
