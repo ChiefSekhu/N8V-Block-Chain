@@ -1,6 +1,7 @@
 [package]
 name = "n8v-blockchain"
 version = "0.2.0"
+authors = ["Se'khu Hadjo Gentle <micohadjo@gmail.com>"]
 edition = "2021"
 
 [dependencies]
@@ -16,7 +17,7 @@ log = "0.4"
 pretty_env_logger = "0.4"
 schnorrkel = "0.11.4"
 pqcrypto-dilithium = "0.5.0"
-cpython = "0.5.2"  # Specify version without the std feature
+cpython = "0.5.2"  # Using version without std feature, ensuring no conflicts
 
 [features]
 default = ["std"]
@@ -32,7 +33,7 @@ std = [
     "log/std",
     "schnorrkel/std",
     "pqcrypto-dilithium/std"
-    # "cpython/std" removed as it does not support this feature
+    # Removed cpython/std to avoid conflicts
 ]
 
 [[bin]]
@@ -42,3 +43,4 @@ path = "node/src/main.rs"
 [lib]
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
+
