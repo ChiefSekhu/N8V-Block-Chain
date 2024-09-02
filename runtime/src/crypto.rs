@@ -74,3 +74,20 @@ impl N8IVMining {
         hash[0] == 0 && hash[1] == 0 && hash[2] == 0
     }
 }
+use decentralized_storage::Ipfs;
+
+pub struct N8IVStorage;
+
+impl N8IVStorage {
+    pub fn store_data(data: &[u8]) -> Result<String, &'static str> {
+        let ipfs = Ipfs::new();
+        let cid = ipfs.add(data)?;
+        Ok(cid.to_string())
+    }
+
+    pub fn retrieve_data(cid: &str) -> Result<Vec<u8>, &'static str> {
+        let ipfs = Ipfs::new();
+        let data = ipfs.cat(cid)?;
+        Ok(data)
+    }
+}
