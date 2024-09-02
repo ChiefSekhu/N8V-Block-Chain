@@ -1,7 +1,7 @@
 [package]
 name = "n8v-blockchain"
 version = "0.2.0"
-edition = "2021"  # Ensure this matches the Rust edition you're using
+edition = "2021"
 
 [dependencies]
 chrono = "0.4"
@@ -14,9 +14,9 @@ hex = "0.4"
 once_cell = "1.5"
 log = "0.4"
 pretty_env_logger = "0.4"
-schnorrkel = "0.11.4"  # Include the correct version here
+schnorrkel = "0.11.4"
 pqcrypto-dilithium = "0.5.0"
-cpython = "0.5.0"
+cpython = "0.5.2"  # Specify version without the std feature
 
 [features]
 default = ["std"]
@@ -31,8 +31,8 @@ std = [
     "once_cell/std",
     "log/std",
     "schnorrkel/std",
-    "pqcrypto-dilithium/std",
-    "cpython/std"
+    "pqcrypto-dilithium/std"
+    # "cpython/std" removed as it does not support this feature
 ]
 
 [[bin]]
