@@ -2,7 +2,7 @@
 
 use frame_support::{decl_module, decl_storage, decl_event, decl_error, dispatch};
 use frame_system::{self as system, ensure_signed};
-use cpython::{Python, PyResult, PyErr, PyObject};
+use cpython::{Python};
 
 pub trait Config: frame_system::Config {
     type Event: From<Event<Self>> + Into<<Self as frame_system::Config>::Event>;
