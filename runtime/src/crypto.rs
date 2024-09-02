@@ -50,3 +50,27 @@ impl<T: Config> Module<T> {
         tx.signature.verify(&tx.sender, &tx.dag_block_hash).is_ok()
     }
 }
+use heavyhash::HeavyHash;
+
+pub struct N8IVMining;
+
+impl N8IVMining {
+    pub fn hash_data(data: &[u8]) -> [u8; 32] {
+        let mut hasher = HeavyHash::new();
+        hasher.update(data);
+        hasher.finalize()
+    }
+    
+    pub fn mine_block(data: &[u8]) -> [u8; 32] {
+        loop {
+            let hash = Self::hash_data(data);
+            if Self::is_valid_block_hash(&hash) {
+                return hash;
+            }
+        }
+    }
+
+    fn is_valid_block_hash(hash: &[u8; 32]) -> bool {
+        hash[0] == 0 && hash[1] == 0 && hash[2] == 0
+    }
+}
