@@ -12,7 +12,7 @@ sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-
 sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
 sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
 sp-application-crypto = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
-schnorrkel = "0.11.4"  # Updated to use a single version of schnorrkel
+schnorrkel = "0.11.4"
 pqcrypto-dilithium = "0.5.0"
 cpython = "0.5.0"
 
@@ -38,5 +38,5 @@ path = "node/src/main.rs"
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
 
-[patch.crates-io]
-schnorrkel = { version = "0.11.4", package = "schnorrkel" }
+[patch."https://github.com/username/schnorrkel"]
+schnorrkel = { git = "https://github.com/username/schnorrkel.git", branch = "new-feature-branch" }
