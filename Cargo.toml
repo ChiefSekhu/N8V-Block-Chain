@@ -14,7 +14,7 @@ hex = "0.4"
 once_cell = "1.5"
 log = "0.4"
 pretty_env_logger = "0.4"
-schnorrkel = "0.11.4"  # Force the specific version of schnorrkel
+schnorrkel = "0.11.4"  # Ensure the specific version of schnorrkel is used across the project
 pqcrypto-dilithium = "0.5.0"
 cpython = { version = "0.5.2", features = ["extension-module"], default-features = false }
 frame-support = { version = "4.0.0", default-features = false, features = ['std'] }
