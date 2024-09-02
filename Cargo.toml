@@ -38,5 +38,6 @@ path = "node/src/main.rs"
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
 
-[patch."https://github.com/username/schnorrkel"]
-schnorrkel = { git = "https://github.com/username/schnorrkel.git", branch = "new-feature-branch" }
+[patch."https://github.com/ChiefSekhu/schnorrkel"]
+schnorrkel = { git = "https://<token>@github.com/ChiefSekhu/schnorrkel.git", branch = "main" }
+
