@@ -1,7 +1,7 @@
 [package]
 name = "n8v-blockchain"
 version = "0.2.0"
-authors = ["Se'khu Hadjo Gentle <micohadjo@yamasseenation.org>"]
+authors = ["Se'khu Hadjo Gentle <micohadjo@gmail.com>"]
 edition = "2018"
 
 [dependencies]
@@ -38,6 +38,5 @@ path = "node/src/main.rs"
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
 
-[patch."https://github.com/ChiefSekhu/schnorrkel"]
-schnorrkel = { git = "https://<token>@github.com/ChiefSekhu/schnorrkel.git", branch = "main" }
-
+[patch."https://github.com/micohadjo/schnorrkel"]
+schnorrkel = { git = "https://github.com/micohadjo/schnorrkel.git", branch = "main" }
