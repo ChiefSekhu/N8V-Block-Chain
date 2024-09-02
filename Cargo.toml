@@ -1,33 +1,38 @@
 [package]
 name = "n8v-blockchain"
 version = "0.2.0"
-authors = ["Se'khu Hadjo Gentle <micohadjo@gmail.com>"]
-edition = "2018"
+edition = "2021"  # Ensure this matches the Rust edition you're using
 
 [dependencies]
-frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
-frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
-pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
-sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
-sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
-sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false, features = ["std"] }
-sp-application-crypto = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
-schnorrkel = "0.9.1"  # Specific version that aligns with your needs
+chrono = "0.4"
+sha2 = "0.9.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+libp2p = { version = "0.39", features = ["tcp-tokio", "mdns"] }
+tokio = { version = "1.0", features = ["io-util", "io-std", "macros", "rt", "rt-multi-thread", "sync", "time"] }
+hex = "0.4"
+once_cell = "1.5"
+log = "0.4"
+pretty_env_logger = "0.4"
+schnorrkel = "0.11.4"  # Include the correct version here
 pqcrypto-dilithium = "0.5.0"
 cpython = "0.5.0"
 
 [features]
 default = ["std"]
 std = [
-    "frame-support/std",
-    "frame-system/std",
-    "pallet-balances/std",
-    "sp-core/std",
-    "sp-runtime/std",
-    "sp-io/std",
-    "sp-application-crypto/std",
+    "chrono/std",
+    "sha2/std",
+    "serde/std",
+    "serde_json/std",
+    "libp2p/std",
+    "tokio/std",
+    "hex/std",
+    "once_cell/std",
+    "log/std",
     "schnorrkel/std",
-    "pqcrypto-dilithium/std"
+    "pqcrypto-dilithium/std",
+    "cpython/std"
 ]
 
 [[bin]]
