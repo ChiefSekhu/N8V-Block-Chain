@@ -1,15 +1,15 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 
 use frame_support::{decl_module, decl_storage, decl_event, decl_error, dispatch};
-use frame_system::ensure_signed;
+use frame_system::{self as system, ensure_signed};
 use cpython::{Python, PyResult, PyErr, PyObject};
 
-pub trait Trait: frame_system::Config {
+pub trait Config: frame_system::Config {
     type Event: From<Event<Self>> + Into<<Self as frame_system::Config>::Event>;
 }
 
 decl_storage! {
-    trait Store for Module<T: Trait> as TemplateModule {
+    trait Store for Module<T: Config> as TemplateModule {
         AIResult get(fn ai_result): Option<f64>;
     }
 }
@@ -21,13 +21,13 @@ decl_event!(
 );
 
 decl_error! {
-    pub enum Error for Module<T: Trait> {
+    pub enum Error for Module<T: Config> {
         PythonExecutionFailed,
     }
 }
 
 decl_module! {
-    pub struct Module<T: Trait> for enum Call where origin: T::Origin {
+    pub struct Module<T: Config> for enum Call where origin: T::Origin {
         fn deposit_event() = default;
 
         #[weight = 10_000]
@@ -54,4 +54,3 @@ decl_module! {
         }
     }
 }
-
