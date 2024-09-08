@@ -44,6 +44,3 @@ path = "node/src/main.rs"
 [lib]
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
-
-[patch.crates-io]
-schnorrkel = "=0.11.4"
