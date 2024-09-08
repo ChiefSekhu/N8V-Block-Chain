@@ -45,8 +45,5 @@ path = "node/src/main.rs"
 name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
 
-[patch.crates-io]
-schnorrkel = { version = "=0.11.4", package = "schnorrkel" }
-
 [dev-dependencies]
-sp-core = { version = "6.0.0" } # Potentially an updated version of sp-core to match schnorrkel
+sp-core = { version = "6.0.0" }
