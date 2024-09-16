@@ -8,14 +8,22 @@ chrono = "0.4"
 sha2 = "0.9.8"
 serde = "1.0"
 serde_json = "1.0"
-hex = { version = "0.4", features = ["std"] }
-log = { version = "0.4", features = ["std"] }
+libp2p = { version = "0.54.1", default-features = false } # Ensure no conflicts here
+tokio = { version = "1.40.0", features = ["full"] }
+hex = "0.4"
+once_cell = "1.5"
+log = "0.4"
 pretty_env_logger = "0.4"
-once_cell = { version = "1.5", features = ["std"] }
+
+sp-core = { version = "8.0.0", default-features = false, features = ["std"] }
+sp-runtime = { version = "8.0.0", default-features = false, features = ["std"] }
+sp-runtime-interface = "8.0.0"
+sp-runtime-interface-proc-macro = "7.0.0"
+
+schnorrkel = { version = "0.11.4", features = ["std"] }
+
 pqcrypto-dilithium = { version = "0.5.0", features = ["std"] }
 cpython = { version = "0.5.2", features = ["extension-module"], default-features = false }
-
-libp2p = { version = "0.54.1", default-features = false, features = ["tcp-tokio", "dns-tokio"] }
 
 frame-support = { version = "4.0.0", default-features = false, features = ["std"] }
 frame-system = { version = "4.0.0", default-features = false, features = ["std"] }
@@ -31,7 +39,9 @@ std = [
     "serde/std",
     "serde_json/std",
     "hex/std",
+    "once_cell/std",
     "log/std",
+    "schnorrkel/std",
     "pqcrypto-dilithium/std",
     "frame-support/std",
     "frame-system/std"
@@ -40,6 +50,10 @@ std = [
 [[bin]]
 name = "n8v-blockchain-node"
 path = "node/src/main.rs"
+
+[lib]
+name = "n8v_blockchain"
+path = "pallets/template/src/lib.rs"
 
 [dev-dependencies]
 sp-core = { version = "6.0.0" }
