@@ -8,7 +8,7 @@ chrono = { version = "0.4", features = ["std"] }
 sha2 = { version = "0.9.8", features = ["std"] }
 serde = { version = "1.0", features = ["derive", "std"] }
 serde_json = { version = "1.0", features = ["std"] }
-libp2p = { version = "0.54.1", default-features = false, features = ["std"] }
+libp2p = { version = "0.54.1", default-features = false }
 tokio = { version = "1.40.0", features = ["full"] }
 hex = { version = "0.4", features = ["std"] }
 once_cell = { version = "1.5", features = ["std"] }
