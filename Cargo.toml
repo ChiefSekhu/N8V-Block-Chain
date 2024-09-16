@@ -1,4 +1,3 @@
-
 [package]
 name = "n8v-blockchain"
 version = "0.2.0"
@@ -15,11 +14,11 @@ hex = { version = "0.4", features = ["std"] }
 once_cell = { version = "1.5", features = ["std"] }
 log = { version = "0.4", features = ["std"] }
 pretty_env_logger = "0.4"
+schnorrkel = { version = "0.11.4", features = ["std"] }
 pqcrypto-dilithium = { version = "0.5.0", features = ["std"] }
 cpython = { version = "0.5.2", features = ["extension-module"], default-features = false }
 frame-support = { version = "4.0.0", default-features = false, features = ["std"] }
 frame-system = { version = "4.0.0", default-features = false, features = ["std"] }
-schnorrkel = { version = "0.11.4", features = ["std"] }
 
 [features]
 default = ["std"]
