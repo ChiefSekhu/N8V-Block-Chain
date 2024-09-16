@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 chrono = { version = "0.4", features = ["std"] }
 sha2 = { version = "0.9.8", features = ["std"] }
-serde = { version = "1.0", features = ["derive", "std"] }
+serde = { version = "1.0", features = ["std"] }
 serde_json = { version = "1.0", features = ["std"] }
 libp2p = { version = "0.54.1", default-features = false }
 tokio = { version = "1.40.0", features = ["full"] }
@@ -14,11 +14,23 @@ hex = { version = "0.4", features = ["std"] }
 once_cell = { version = "1.5", features = ["std"] }
 log = { version = "0.4", features = ["std"] }
 pretty_env_logger = "0.4"
-schnorrkel = { version = "0.11.4", features = ["std"] }
-pqcrypto-dilithium = { version = "0.5.0", features = ["std"] }
-cpython = { version = "0.5.2", features = ["extension-module"], default-features = false }
+
+# Substrate dependencies
 frame-support = { version = "4.0.0", default-features = false, features = ["std"] }
 frame-system = { version = "4.0.0", default-features = false, features = ["std"] }
+sp-core = { version = "8.0.0", default-features = false, features = ["std"] }
+sp-runtime = { version = "8.0.0", default-features = false, features = ["std"] }
+
+# Cryptographic libraries
+pqcrypto-dilithium = { version = "0.5.0", features = ["std"] }
+cpython = { version = "0.5.2", features = ["extension-module"], default-features = false }
+
+# Ensure consistent schnorrkel version
+schnorrkel = { version = "0.11.4", features = ["std"] }
+
+[patch.crates-io]
+# Make sure all dependencies use the same schnorrkel version
+schnorrkel = { version = "0.11.4", features = ["std"] }
 
 [features]
 default = ["std"]
@@ -33,7 +45,9 @@ std = [
     "schnorrkel/std",
     "pqcrypto-dilithium/std",
     "frame-support/std",
-    "frame-system/std"
+    "frame-system/std",
+    "sp-core/std",
+    "sp-runtime/std"
 ]
 
 [[bin]]
@@ -45,4 +59,4 @@ name = "n8v_blockchain"
 path = "pallets/template/src/lib.rs"
 
 [dev-dependencies]
-sp-core = { version = "6.0.0" }
+sp-core = { version = "8.0.0" }
