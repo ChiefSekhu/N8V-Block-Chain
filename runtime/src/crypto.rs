@@ -1,5 +1,5 @@
 use sp_core::sr25519::{Public, Signature};
-use schnorrkel::{MiniSecretKey, ExpansionMode};
+let mini_key: MiniSecretKey = mini_secret_from_entropy(entropy, password);
 use pqcrypto_dilithium::dilithium3::*;
 use heavyhash::HeavyHash;
 use frame_support::{decl_module, decl_storage, dispatch::DispatchResult};
