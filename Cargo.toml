@@ -37,6 +37,9 @@ std = [
     "frame-system/std"
 ]
 
+[patch.crates-io]
+schnorrkel = { version = "0.11.4" }
+
 [[bin]]
 name = "n8v-blockchain-node"
 path = "node/src/main.rs"
