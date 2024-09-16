@@ -4,23 +4,24 @@ version = "0.2.0"
 edition = "2021"
 
 [dependencies]
-# Ensure all major dependencies are pinned to the same major version.
-schnorrkel = { version = "0.11.4", features = ["std"] }
-sp-core = { version = "8.0.0", features = ["std"] }
-sp-runtime = { version = "8.0.0", features = ["std"] }
-sp-io = { version = "8.0.0", default-features = false }
-frame-support = { version = "4.0.0", default-features = false, features = ["std"] }
-frame-system = { version = "4.0.0", default-features = false, features = ["std"] }
+chrono = "0.4"
+sha2 = "0.9.8"
 serde = "1.0"
 serde_json = "1.0"
-libp2p = { version = "0.54.1", default-features = false }
-tokio = { version = "1.40.0", features = ["full"] }
 hex = { version = "0.4", features = ["std"] }
-once_cell = { version = "1.5", features = ["std"] }
 log = { version = "0.4", features = ["std"] }
 pretty_env_logger = "0.4"
+once_cell = { version = "1.5", features = ["std"] }
 pqcrypto-dilithium = { version = "0.5.0", features = ["std"] }
 cpython = { version = "0.5.2", features = ["extension-module"], default-features = false }
+
+libp2p = { version = "0.54.1", default-features = false, features = ["tcp-tokio", "dns-tokio"] }
+
+frame-support = { version = "4.0.0", default-features = false, features = ["std"] }
+frame-system = { version = "4.0.0", default-features = false, features = ["std"] }
+
+[patch.crates-io]
+schnorrkel = { version = "0.11.4", features = ["std"] }
 
 [features]
 default = ["std"]
@@ -30,9 +31,7 @@ std = [
     "serde/std",
     "serde_json/std",
     "hex/std",
-    "once_cell/std",
     "log/std",
-    "schnorrkel/std",
     "pqcrypto-dilithium/std",
     "frame-support/std",
     "frame-system/std"
@@ -43,4 +42,4 @@ name = "n8v-blockchain-node"
 path = "node/src/main.rs"
 
 [dev-dependencies]
-sp-core = { version = "8.0.0" }
+sp-core = { version = "6.0.0" }
