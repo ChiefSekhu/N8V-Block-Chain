@@ -1,5 +1,5 @@
 use sp_core::sr25519::{Public, Signature};
-use sp_core::crypto::{MiniSecretKey, mini_secret_from_entropy}; // Ensure this import matches the library specifications
+use schnorrkel::{MiniSecretKey, ExpansionMode};
 use pqcrypto_dilithium::dilithium3::*;
 use heavyhash::HeavyHash;
 use frame_support::{decl_module, decl_storage, dispatch::DispatchResult};
