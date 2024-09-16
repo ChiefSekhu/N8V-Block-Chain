@@ -5,18 +5,18 @@ version = "0.2.0"
 edition = "2021"
 
 [dependencies]
-chrono = { version = "0.4", features = ["std"] }
-sha2 = { version = "0.9.8", features = ["std"] }
-serde = { version = "1.0", features = ["derive", "std"] }
-serde_json = { version = "1.0", features = ["std"] }
+chrono = "0.4"
+sha2 = "0.9.8"
+serde = "1.0"
+serde_json = "1.0"
+schnorrkel = { version = "0.11.4", features = ["std"] }
 libp2p = { version = "0.54.1", default-features = false }
 tokio = { version = "1.40.0", features = ["full"] }
 hex = { version = "0.4", features = ["std"] }
 once_cell = { version = "1.5", features = ["std"] }
 log = { version = "0.4", features = ["std"] }
 pretty_env_logger = "0.4"
-[dependencies]
-schnorrkel = { version = "0.11.4", features = ["std"] }
+
 pqcrypto-dilithium = { version = "0.5.0", features = ["std"] }
 cpython = { version = "0.5.2", features = ["extension-module"], default-features = false }
 frame-support = { version = "4.0.0", default-features = false, features = ["std"] }
